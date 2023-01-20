@@ -7,21 +7,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tweteroo.api.dto.TweetsDTO;
-import com.tweteroo.api.model.Tweets;
-import com.tweteroo.api.repository.TweetsRepository;
+import com.tweteroo.api.service.TweetsService;
 
 import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/tweets")
-public class TweetController {
+public class TweetsController {
     
     @Autowired
-    private TweetsRepository repository;
+    private TweetsService service;;
 
     @PostMapping
     public String create(@RequestBody @Valid TweetsDTO req) {
-        repository.save(new Tweets(req));
+        service.save(req);
         return "OK";
     }
 
