@@ -7,6 +7,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -24,6 +26,10 @@ public class Tweets {
 
     @Column(length = 400, nullable = false)
     private String tweet;
+
+    //@ManyToOne
+    //@JoinColumn(name = "user_id")
+    //private User user;
 
     public Tweets(TweetsDTO data) {
         this.username = data.username(); 
